@@ -1,71 +1,87 @@
 <template>
   <div class="container">
     <div class="content-wrapper">
-      <div class="content-box">
-        <div class="first-box">
+      <div v-for="(event, index) in events" :key="index" class="content-box" :class="`animate-box-${index}`"
+        ref="animatedBoxes">
+        <div :class="`${event.boxClass}`">
           <div class="gradient-overlay"></div>
         </div>
         <div class="box-item">
-          <h3 class="name-event upp">Lovv66 - 19 июня</h3>
-          <p class="name-place upp">Место проведения: <span class="upp pink">Зеленый театр</span></p>
-          <p class="name-place upp">Продано билетов: <span class="upp pink">1200+</span></p>
-          <a href="https://qtickets.ru/event/163414" class="ticket-link upp">Купить билет</a>
+          <h3 class="name-event upp">{{ event.title }}</h3>
+          <p class="name-place upp" v-if="event.venue">Место проведения: <span class="upp pink">{{ event.venue }}</span>
+          </p>
+          <p class="name-place upp" v-if="event.ticketsSold">Продано билетов: <span class="upp pink">{{
+            event.ticketsSold }}</span></p>
+          <p class="description upp" v-if="event.description">{{ event.description }}</p>
+          <a :href="event.link" target="_blank" class="ticket-link upp">{{ event.linkText }}</a>
         </div>
       </div>
-
-      <div class="content-box">
-        <div class="third-box">
-          <div class="gradient-overlay"></div>
-        </div>
-        <div class="box-item">
-          <h3 class="name-event upp">toxis - 13 июля</h3>
-          <p class="name-place upp">Место проведения: <span class="upp pink">Зеленый театр</span></p>
-          <p class="name-place upp">Продано билетов: <span class="upp pink">1000+</span></p>
-          <a href="https://sochi.qtickets.events/163796-bolshoy-solnyy-kontsert-toxi" class="ticket-link upp">Купить билет</a>
-        </div>
-      </div>
-
-      <div class="content-box">
-        <div class="fird-box">
-          <div class="gradient-overlay"></div>
-        </div>
-        <div class="box-item">
-          <h3 class="name-event upp">2к17</h3>
-          <p class="name-place upp">Место проведения: <span class="upp pink">Мандарин</span></p>
-          <p class="name-place upp">Продано билетов: <span class="upp pink">500+</span></p>
-          <a href="https://qtickets.ru/event/162036" class="ticket-link upp">Купить билет</a>
-        </div>
-      </div>
-
-      <div class="content-box">
-        <div class="five-box">
-          <div class="gradient-overlay"></div>
-        </div>
-        <div class="box-item">
-          <h3 class="name-event upp">Bushido Zho</h3>
-          <p class="name-place upp">Место проведения: <span class="upp pink">vinograd</span></p>
-          <p class="name-place upp">Продано билетов: <span class="upp pink">N/O</span></p>
-          <a href="https://t.me/traphouserussia" class="ticket-link upp">Купить билет</a>
-        </div>
-      </div>
-
-      <div class="content-box">
-        <div class="second-box">
-          <div class="gradient-overlay"></div>
-        </div>
-        <div class="box-item">
-          <h3 class="name-event upp">dj control</h3>
-          <p class="description upp">Школа диджеинга в Сочи от резидентов TrapHouse</p>
-          <a href="https://t.me/controlschool" class="ticket-link upp">Узнать больше</a>
-        </div>
-      </div>
-
-
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+
+const events = [
+  {
+    boxClass: 'first-box',
+    title: 'Lovv66 - 19 июня',
+    venue: 'Зеленый театр',
+    ticketsSold: '1200+',
+    link: 'https://qtickets.ru/event/163414',
+    linkText: 'Купить билет'
+  },
+  {
+    boxClass: 'third-box',
+    title: 'toxis - 13 июля',
+    venue: 'Зеленый театр',
+    ticketsSold: '1500+',
+    link: 'https://sochi.qtickets.events/163796-bolshoy-solnyy-kontsert-toxi',
+    linkText: 'Купить билет'
+  },
+  {
+    boxClass: 'fird-box',
+    title: '2к17',
+    venue: 'Мандарин',
+    ticketsSold: '500+',
+    link: 'https://qtickets.ru/event/162036',
+    linkText: 'Купить билет'
+  },
+  {
+    boxClass: 'five-box',
+    title: 'Bushido Zho',
+    venue: 'vinograd',
+    ticketsSold: 'N/O',
+    link: 'https://t.me/traphouserussia',
+    linkText: 'Купить билет'
+  },
+  {
+    boxClass: 'second-box',
+    title: 'dj control',
+    description: 'Школа диджеинга в Сочи от резидентов TrapHouse',
+    link: 'https://t.me/controlschool',
+    linkText: 'Узнать больше'
+  }
+]
+
+const animatedBoxes = ref<HTMLElement[]>([])
+
+onMounted(() => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in')
+      }
+    })
+  }, {
+    threshold: 0.1
+  })
+
+  animatedBoxes.value.forEach(box => {
+    observer.observe(box)
+  })
+})
 </script>
 
 <style scoped>
@@ -74,6 +90,7 @@
   padding: 20px 0;
   width: 100%;
   font-family: 'SF Pro Text', BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
 }
 
 .content-wrapper {
@@ -86,11 +103,23 @@
 }
 
 .content-box {
-  border: 1px solid rgbargb(255, 0, 200);
+  border: 1px solid rgb(255, 0, 200);
   border-radius: 38px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.content-box:nth-child(even) {
+  transform: translateX(50px);
+}
+
+.content-box.animate-in {
+  opacity: 1;
+  transform: translateX(0) !important;
 }
 
 .gradient-overlay {
@@ -108,7 +137,7 @@
 
 .first-box,
 .second-box,
-.third-box{
+.third-box {
   position: relative;
   width: 100%;
   height: 200px;
@@ -117,10 +146,11 @@
   background-repeat: no-repeat;
 }
 
-.fird-box,.five-box {
+.fird-box,
+.five-box {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 250px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -138,11 +168,11 @@
   background-image: url(/public/toxis.jpg);
 }
 
-.fird-box{
+.fird-box {
   background-image: url(/public/2017.jpg);
 }
 
-.five-box{
+.five-box {
   background-image: url(/public/bsh.png);
 }
 
@@ -152,8 +182,8 @@
   color: white;
   flex-grow: 1;
   display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .name-event {
@@ -212,6 +242,11 @@
     gap: 30px;
   }
 
+  .fird-box,
+.five-box {
+  height: 350px;
+}
+
   .first-box,
   .second-box,
   .third-box {
@@ -233,6 +268,19 @@
   .ticket-link {
     padding: 12px 25px;
     font-size: 16px;
+  }
+
+  /* Анимации для десктопа */
+  .content-box {
+    transform: translateX(-100px);
+  }
+
+  .content-box:nth-child(even) {
+    transform: translateX(100px);
+  }
+
+  .content-box.animate-in {
+    transform: translateX(0) !important;
   }
 }
 </style>
