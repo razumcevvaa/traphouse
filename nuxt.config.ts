@@ -4,7 +4,7 @@ export default defineNuxtConfig({
 
   devtools: { enabled: false },
   app: {
-    baseURL: '/project/',
+    baseURL: '/',
     // pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       charset: 'utf-8',
