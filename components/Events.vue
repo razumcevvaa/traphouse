@@ -28,32 +28,49 @@ const events = [
     boxClass: 'first-box',
     title: 'Lovv66 - 19 июня',
     venue: 'Зеленый театр',
-    ticketsSold: '1200+',
+    ticketsSold: '1700+',
     link: 'https://qtickets.ru/event/163414',
+    linkText: 'Купить билет'
+  },
+  {
+    boxClass: 'five-box',
+    title: 'Bushido Zho - 29 июня',
+    venue: 'Vinograd',
+    ticketsSold: '1000+',
+    link: 'https://qtickets.ru/event/164994?utm_campaign=traphouse&utm_content=traphouse&utm_term=traphouse&site_url=https%3A%2F%2Fsochi.qtickets.events%2F164994-bushido-zho-29-iyunya-predprodazha%3Futm_campaign%3Dtraphouse%26utm_content%3Dtraphouse%26utm_term%3Dtraphouse&host=sochi.qtickets.events&winclose=1',
+    linkText: 'Купить билет'
+  },
+  {
+    boxClass: 'seven-box',
+    title: 'ICEGERGERT - 6 июля',
+    venue: 'Vinograd',
+    ticketsSold: '800+',
+    link: 'https://qtickets.ru/event/166737?utm_source=traphouse&utm_medium=traphouse&utm_campaign=traphouse&utm_content=traphouse&utm_term=traphouse&site_url=https%253A%252F%252Fsochi.qtickets.events%252F166737-solnyy-kontsert-icegergert-6-iyulya%253Futm_source%253Dtraphouse%2526utm_medium%253Dtraphouse%2526utm_campaign%253Dtraphouse%2526utm_content%253Dtraphouse%2526utm_term%253Dtraphouse&host=sochi.qtickets.events&winclose=1&integrations%5Bgoogleanalytics4%5D%5BtrackingId%5D=G-C7XDWKGV2H&integrations%5Bgoogleanalytics4%5D%5BclientId%5D=1493123655.1747052575&integrations%5Bgoogleanalytics4%5D%5Bopenapi_session_id%5D=G-C7XDWKGV2H_s1747076983%2524o4%2524g1%2524t1747078215%2524j0%2524l0%2524h0',
     linkText: 'Купить билет'
   },
   {
     boxClass: 'third-box',
     title: 'toxis - 13 июля',
     venue: 'Зеленый театр',
-    ticketsSold: '1500+',
-    link: 'https://sochi.qtickets.events/163796-bolshoy-solnyy-kontsert-toxi',
+    ticketsSold: '1800+',
+    link: 'https://sochi.qtickets.events/163796-bolshoy-solnyy-kontsert-toxi?utm_source=qtickets&utm_medium=cpc&utm_term=traphouse&utm_campaign=traphouse',
     linkText: 'Купить билет'
   },
   {
-    boxClass: 'fird-box',
-    title: '2к17',
-    venue: 'Мандарин',
-    ticketsSold: '500+',
-    link: 'https://qtickets.ru/event/162036',
-    linkText: 'Купить билет'
-  },
-  {
-    boxClass: 'five-box',
-    title: 'Bushido Zho',
-    venue: 'vinograd',
+    boxClass: 'four-box',
+    title: 'ЛСП - 18 июля',
+    venue: 'Vinograd',
     ticketsSold: 'N/O',
-    link: 'https://t.me/traphouserussia',
+    link: 'https://t.me/traphouseevents',
+    linkText: 'Купить билет'
+  },
+
+  {
+    boxClass: 'six-box',
+    title: 'SALUKI - 10 августа',
+    venue: 'Vinograd',
+    ticketsSold: 'N/O',
+    link: 'https://t.me/traphouseevents',
     linkText: 'Купить билет'
   },
   {
@@ -137,10 +154,13 @@ onMounted(() => {
 
 .first-box,
 .second-box,
-.third-box {
+.third-box,
+.four-box,
+.six-box,
+.seven-box {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 250px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -173,7 +193,19 @@ onMounted(() => {
 }
 
 .five-box {
-  background-image: url(/public/bsh.png);
+  background-image: url(/public/bsh.jpg);
+}
+
+.four-box {
+  background-image: url(/public/lsp.jpg);
+}
+
+.six-box {
+  background-image: url(/public/saluki.jpg);
+}
+
+.seven-box {
+  background-image: url(/public/ice.jpg);
 }
 
 .box-item {
@@ -243,9 +275,9 @@ onMounted(() => {
   }
 
   .fird-box,
-.five-box {
-  height: 350px;
-}
+  .five-box {
+    height: 350px;
+  }
 
   .first-box,
   .second-box,
@@ -269,6 +301,20 @@ onMounted(() => {
     padding: 12px 25px;
     font-size: 16px;
   }
+
+  .first-box,
+.second-box,
+.third-box,
+.four-box,
+.six-box,
+.seven-box {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
   /* Анимации для десктопа */
   .content-box {

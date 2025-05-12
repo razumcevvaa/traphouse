@@ -27,7 +27,7 @@
               </div>
             </div>
           </div>
-          <a class="link-tg" href="https://t.me/traphouserussia">розыгрыш билетов</a>
+          <a class="link-tg" href="https://t.me/traphouseevents">розыгрыш билетов</a>
         </div>
       </div>
     </div>
@@ -87,7 +87,7 @@ onBeforeUnmount(() => {
 .parallax-container {
   position: relative;
   width: 100%;
-  height: 40vh;
+  height: 47vh;
   /* Для мобильной версии */
   overflow: hidden;
   color: white;
@@ -144,7 +144,6 @@ onBeforeUnmount(() => {
   font-weight: 800;
   font-size: 35px;
   text-align: center;
-  margin-bottom: 15px;
 }
 
 .countdown-container {
@@ -184,7 +183,7 @@ onBeforeUnmount(() => {
 }
 
 .link-tg {
-  margin-top: 30px;
+  margin-top: 20px;
   color: white;
   text-decoration: none;
   background-color: black;
@@ -233,7 +232,7 @@ transition: all 0.3s;
   }
 
   .responsive-text {
-    font-size: 90px;
+    font-size:90px;
   }
 
   .countdown-grid {
@@ -270,6 +269,11 @@ transition: all 0.3s;
     text-transform: uppercase;
     font-family: 'SF Pro Text', BlinkMacSystemFont, sans-serif;
     font-weight: 500;
+  }
+}
+@media (min-width: 800px) and (max-width: 900px) {
+  .responsive-text {
+    font-size:70px;
   }
 }
 </style>

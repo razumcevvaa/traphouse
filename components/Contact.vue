@@ -6,7 +6,7 @@
     <a class="social-link" href="https://www.instagram.com/traphouse.sochi?igsh=aWE1ajZscnpnZmE=" target="_blank" rel="noopener noreferrer">
       <img src="/public/inst.png" alt="Instagram" width="150" height="150">
     </a>
-    <a class="social-link" href="https://t.me/traphouserussia" target="_blank" rel="noopener noreferrer">
+    <a class="social-link" href="https://t.me/traphouseevents" target="_blank" rel="noopener noreferrer">
       <img src="/public/tg.png" alt="Telegram" width="150" height="150">
     </a>
   </div>

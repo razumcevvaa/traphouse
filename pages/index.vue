@@ -6,9 +6,9 @@
     <Contact />
     <footer>
       <a class="footer-link" href="https://qtickets.ru/refund" target="_blank" rel="noopener noreferrer">возвраты</a>
-      <a class="footer-link" href="https://t.me/traphouserussia" target="_blank"
+      <a class="footer-link" href="https://t.me/traphouseevents" target="_blank"
         rel="noopener noreferrer">сотрудничество</a>
-      <a class="footer-link" href="https://t.me/traphouserussia" target="_blank" rel="noopener noreferrer">поддержка</a>
+      <a class="footer-link" href="https://t.me/traphouseevents" target="_blank" rel="noopener noreferrer">поддержка</a>
     </footer>
   </div>
 </template>
