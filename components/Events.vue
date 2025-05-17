@@ -58,10 +58,10 @@ const events = [
   },
   {
     boxClass: 'four-box',
-    title: 'ЛСП - 18 июля',
+    title: 'ЛСП - 19 июля',
     venue: 'Vinograd',
     ticketsSold: 'N/O',
-    link: 'https://t.me/traphouseevents',
+    link: 'https://qtickets.ru/event/167722?site_url=https%3A%2F%2Fsochi.qtickets.events%2F167722-lsp-19-iyulya%3Fclckid%3Dd6a48a0f&host=sochi.qtickets.events&winclose=1&integrations%5Bgoogleanalytics4%5D%5BtrackingId%5D=G-C7XDWKGV2H&integrations%5Bgoogleanalytics4%5D%5BclientId%5D=1493123655.1747052575&integrations%5Bgoogleanalytics4%5D%5Bopenapi_session_id%5D=G-C7XDWKGV2H_s1747502110%24o11%24g0%24t1747502110%24j0%24l0%24h0&utm_source=traphouse&utm_medium=traphouse&utm_campaign=traphouse',
     linkText: 'Купить билет'
   },
 
@@ -69,8 +69,8 @@ const events = [
     boxClass: 'six-box',
     title: 'SALUKI - 10 августа',
     venue: 'Vinograd',
-    ticketsSold: 'N/O',
-    link: 'https://t.me/traphouseevents',
+    ticketsSold: '500+',
+    link: 'https://sochi.qtickets.events/166738-saluki-10-avgusta?utm_source=traphouse&utm_medium=traphouse&utm_campaign=traphouse',
     linkText: 'Купить билет'
   },
   {
